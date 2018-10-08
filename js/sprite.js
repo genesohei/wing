@@ -1,7 +1,5 @@
-(function(window) {
-    function Sprite(resources, opts) {
-        opts = opts || {};
-
+export default class Sprite {
+    constructor(resources = null, opts = {}) {
         /**
          * @property {Resources} resources - the resources loader
          */
@@ -34,32 +32,34 @@
          * @property {boolean} once - true to only run the animation once, defaults to false
          */
         this.once = opts.once;
+
         this._index = 0;
     }
 
-    Sprite.prototype.update = function (dt) {
+    update(dt) {
         this._index += this.speed * dt;
-    };
+    }
 
-    Sprite.prototype.render = function(context) {
-        var frame;
+    render(context) {
+        let frame;
 
         if (this.speed > 0) {
-            var max = this.frames.length;
-            var idx = Math.floor(this._index);
+            let max = this.frames.length;
+            let idx = Math.floor(this._index);
 
             frame = this.frames[idx % max];
 
             if (this.once && idx >= max) {
                 this.done = true;
+
                 return;
             }
         } else {
             frame = 0;
         }
 
-        var x = this.pos[0];
-        var y = this.pos[1];
+        let x = this.pos[0];
+        let y = this.pos[1];
 
         if (this.dir === 'vertical') {
             y += frame * this.size[1];
@@ -74,8 +74,5 @@
             0, 0,
             this.size[0], this.size[1]
         );
-    };
-
-    // exports to window
-    window.Sprite = Sprite;
-})(window);
+    }
+}

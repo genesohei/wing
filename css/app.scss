@@ -1,0 +1,90 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #151515;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+}
+
+.game {
+    font-family: sans-serif;
+    text-align: center;
+    color: #fff;
+
+    &_wrap {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    &_header {
+        width: 512px;
+        margin: 0 auto;
+        padding: 2em 0;
+    }
+
+    &_content {
+        position: relative;
+    }
+
+    &_instructions {
+        color: #757575;
+        text-align: left;
+    }
+
+    &_key {
+        color: #aaffdd;
+    }
+
+    &_score {
+        font-size: 2em;
+    }
+
+    &_overlay,
+    &_over {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+        margin: auto;
+    }
+
+    &_overlay {
+        background-color: rgba(#000, .5);
+        pointer-events: none;
+    }
+
+    &_over {
+        margin: 255px 0 0 0;
+
+        > h1 {
+            font-size: 3em;
+        }
+
+        > button {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+    }
+}
+
+.fl_l {
+    float: left;
+}
+
+.fl_r {
+    float: right;
+}
+
+.clear_fix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}

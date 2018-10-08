@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <title>Wing</title>
-<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="dist/index.css">
 <div class="game">
-  <div class="overlay" id="overlay"></div>
+    <div class="game_wrap">
+        <div class="game_header clear_fix">
+            <div class="game_instructions fl_l">
+                <div class="game_instruction">
+                    move with <span class="game_key">arrows</span> or <span class="game_key">wasd</span>
+                </div>
+                <div class="game_instruction">
+                    shoot with <span class="game_key">space</span>
+                </div>
+            </div>
+            <div class="game_score fl_r" id="game-score"></div>
+        </div>
 
-  <div class="over" id="over">
-    <h1>Game Over</h1>
-    <button class="start" id="game-start">Play again</button>
-  </div>
+        <div class="game_content" id="game-content"></div>
 
-  <div class="wrap">
-    <div class="instructions" id="instructions">
-      <div class="instruction">
-        move with <span class="key">arrows</span> or <span class="key">wasd</span>
-      </div>
-      <div class="instruction">
-        shoot with <span class="key">space</span>
-      </div>
+        <div class="game_overlay" id="game-overlay"></div>
+
+        <div class="game_over" id="game-over">
+            <h1>Game Over</h1>
+            <button class="game_start" id="game-start">Play again</button>
+        </div>
     </div>
-
-    <div class="score" id="score"></div>
-  </div>
 </div>
 
-<script src="js/resources.js"></script>
-<script src="js/input.js"></script>
-<script src="js/sprite.js"></script>
-<script src="js/game.js"></script>
-<script src="js/app.js"></script>
+<script src="dist/index.js"></script>

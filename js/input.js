@@ -1,29 +1,25 @@
-(function(window) {
-    'use strict';
-
-    function Input() {
+export default class Input {
+    constructor() {
         this.pressedKeys = {};
     }
 
-    Input.prototype.init = function () {
-        var that = this;
-
-        document.addEventListener('keydown', function(e) {
-            that.setKey(e, true);
+    boot() {
+        document.addEventListener('keydown', (e) => {
+            this.setKey(e, true);
         });
 
-        document.addEventListener('keyup', function(e) {
-            that.setKey(e, false);
+        document.addEventListener('keyup', (e) => {
+            this.setKey(e, false);
         });
 
-        window.addEventListener('blur', function() {
-            that.pressedKeys = {};
+        window.addEventListener('blur', () => {
+            this.pressedKeys = {};
         });
-    };
+    }
 
-    Input.prototype.setKey = function (event, status) {
-        var code = event.keyCode;
-        var key;
+    setKey(event, status) {
+        let code = event.keyCode;
+        let key;
 
         switch (code) {
             case 32:
@@ -52,12 +48,9 @@
         }
 
         this.pressedKeys[key] = status;
-    };
+    }
 
-    Input.prototype.isDown = function (key) {
+    isDown(key) {
         return this.pressedKeys[key.toUpperCase()];
-    };
-
-    // exports to window
-    window.Input = Input;
-})(window);
+    }
+}
